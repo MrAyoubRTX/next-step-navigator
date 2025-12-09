@@ -8,10 +8,10 @@
   :root {
     /* NEXT STEP Brand Colors */
     --background: 210 20% 98%;
-    --foreground: 215 45% 15%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 45% 15%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 215 45% 15%;
@@ -71,28 +71,28 @@
 
   .dark {
     --background: 218 64% 8%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 98%;
 
     --card: 218 60% 12%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 0 0% 98%;
 
     --popover: 218 60% 12%;
-    --popover-foreground: 210 40% 98%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 188 78% 47%;
-    --primary-foreground: 218 64% 15%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 218 50% 20%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 0% 98%;
 
     --accent: 188 78% 47%;
-    --accent-foreground: 218 64% 15%;
+    --accent-foreground: 0 0% 100%;
 
     --muted: 218 50% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 215 20% 75%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
     --border: 218 50% 20%;
     --input: 218 50% 20%;

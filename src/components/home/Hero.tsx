@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Compass, Briefcase, Rocket } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen bg-hero-gradient overflow-hidden">
       {/* Background Elements */}
@@ -30,32 +33,31 @@ export function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            Plateforme #1 d'orientation au Maroc
+            {t("hero.badge")}
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-slide-up">
-            Votre avenir,{" "}
-            <span className="text-gradient">une étape</span>{" "}
-            à la fois
+            {t("hero.title")}{" "}
+            <span className="text-gradient">{t("hero.title.highlight")}</span>{" "}
+            {t("hero.title.end")}
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-primary-foreground/70 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Orientation, stages et entrepreneuriat réunis dans une seule plateforme. 
-            Construisez votre parcours professionnel avec confiance et clarté.
+            {t("hero.description")}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <Button variant="hero" size="xl" asChild>
               <Link to="/orientation">
-                Commencer mon orientation
+                {t("hero.cta.orientation")}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <Link to="/stages">Explorer les stages</Link>
+              <Link to="/stages">{t("hero.cta.stages")}</Link>
             </Button>
           </div>
 
@@ -65,24 +67,24 @@ export function Hero() {
               <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                 <Compass className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Orientation</h3>
-              <p className="text-sm text-primary-foreground/60">Tests interactifs et roadmaps personnalisées pour trouver votre voie.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">{t("hero.card.orientation")}</h3>
+              <p className="text-sm text-primary-foreground/60">{t("hero.card.orientation.desc")}</p>
             </Link>
 
             <Link to="/stages" className="group p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 hover:border-accent/50 transition-all duration-300 backdrop-blur-sm">
               <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                 <Briefcase className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Stages</h3>
-              <p className="text-sm text-primary-foreground/60">Offres de stages ciblées et ressources pour décrocher le poste idéal.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">{t("hero.card.stages")}</h3>
+              <p className="text-sm text-primary-foreground/60">{t("hero.card.stages.desc")}</p>
             </Link>
 
             <Link to="/entrepreneuriat" className="group p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 hover:border-accent/50 transition-all duration-300 backdrop-blur-sm">
               <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                 <Rocket className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Entrepreneuriat</h3>
-              <p className="text-sm text-primary-foreground/60">Guides complets pour créer et lancer votre entreprise au Maroc.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">{t("hero.card.business")}</h3>
+              <p className="text-sm text-primary-foreground/60">{t("hero.card.business.desc")}</p>
             </Link>
           </div>
         </div>
@@ -90,10 +92,10 @@ export function Hero() {
         {/* Stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
           {[
-            { value: "10K+", label: "Utilisateurs actifs" },
-            { value: "500+", label: "Offres de stage" },
-            { value: "95%", label: "Taux de satisfaction" },
-            { value: "50+", label: "Partenaires" },
+            { value: "10K+", label: t("hero.stats.users") },
+            { value: "500+", label: t("hero.stats.offers") },
+            { value: "95%", label: t("hero.stats.satisfaction") },
+            { value: "50+", label: t("hero.stats.partners") },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-accent mb-1">{stat.value}</div>
