@@ -11,68 +11,82 @@ import {
   Users,
   CheckCircle2,
   ChevronRight,
-  BookOpen,
   Lightbulb,
   Target
 } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    title: "Définir votre projet",
-    description: "Clarifiez votre idée, identifiez votre marché cible et validez votre concept.",
-    icon: Lightbulb,
-  },
-  {
-    number: "02",
-    title: "Choisir le statut juridique",
-    description: "SARL, SA, auto-entrepreneur... Découvrez quel statut convient à votre activité.",
-    icon: FileText,
-  },
-  {
-    number: "03",
-    title: "Formalités administratives",
-    description: "Registre de commerce, CRI, CNSS... Toutes les démarches expliquées simplement.",
-    icon: Building,
-  },
-  {
-    number: "04",
-    title: "Trouver des financements",
-    description: "INDH, ANAPEC, banques, investisseurs... Explorez toutes les options.",
-    icon: Wallet,
-  },
-];
-
-const statuts = [
-  {
-    name: "Auto-entrepreneur",
-    description: "Idéal pour démarrer seul avec peu de formalités",
-    advantages: ["Pas de capital minimum", "Comptabilité simplifiée", "Charges réduites"],
-    bestFor: "Freelances, consultants, petits commerces",
-  },
-  {
-    name: "SARL",
-    description: "Structure classique pour les PME",
-    advantages: ["Responsabilité limitée", "Crédibilité accrue", "Partenaires possibles"],
-    bestFor: "PME, projets à croissance modérée",
-  },
-  {
-    name: "SA",
-    description: "Pour les projets ambitieux",
-    advantages: ["Levée de fonds facilitée", "Image professionnelle", "Cotation possible"],
-    bestFor: "Startups, grands projets, levées de fonds",
-  },
-];
-
-const financements = [
-  { name: "ANAPEC", description: "Moukawalati - Aide à la création d'entreprise" },
-  { name: "INDH", description: "Initiative Nationale pour le Développement Humain" },
-  { name: "Maroc PME", description: "Programmes d'accompagnement et financement" },
-  { name: "Banques", description: "Crédit Jeunes Promoteurs, microcrédits" },
-  { name: "Incubateurs", description: "Technopark, StartGate, CFCIM" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Entrepreneuriat = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      number: "01",
+      title: t("entrepreneuriat.step1.title"),
+      description: t("entrepreneuriat.step1.desc"),
+      icon: Lightbulb,
+    },
+    {
+      number: "02",
+      title: t("entrepreneuriat.step2.title"),
+      description: t("entrepreneuriat.step2.desc"),
+      icon: FileText,
+    },
+    {
+      number: "03",
+      title: t("entrepreneuriat.step3.title"),
+      description: t("entrepreneuriat.step3.desc"),
+      icon: Building,
+    },
+    {
+      number: "04",
+      title: t("entrepreneuriat.step4.title"),
+      description: t("entrepreneuriat.step4.desc"),
+      icon: Wallet,
+    },
+  ];
+
+  const statuts = [
+    {
+      name: "Auto-entrepreneur",
+      description: t("entrepreneuriat.statut.auto.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.auto.adv1"),
+        t("entrepreneuriat.statut.auto.adv2"),
+        t("entrepreneuriat.statut.auto.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.auto.best"),
+    },
+    {
+      name: "SARL",
+      description: t("entrepreneuriat.statut.sarl.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.sarl.adv1"),
+        t("entrepreneuriat.statut.sarl.adv2"),
+        t("entrepreneuriat.statut.sarl.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.sarl.best"),
+    },
+    {
+      name: "SA",
+      description: t("entrepreneuriat.statut.sa.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.sa.adv1"),
+        t("entrepreneuriat.statut.sa.adv2"),
+        t("entrepreneuriat.statut.sa.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.sa.best"),
+    },
+  ];
+
+  const financements = [
+    { name: "ANAPEC", description: "Moukawalati - Aide à la création d'entreprise" },
+    { name: "INDH", description: "Initiative Nationale pour le Développement Humain" },
+    { name: "Maroc PME", description: "Programmes d'accompagnement et financement" },
+    { name: "Banques", description: "Crédit Jeunes Promoteurs, microcrédits" },
+    { name: "Incubateurs", description: "Technopark, StartGate, CFCIM" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -83,24 +97,23 @@ const Entrepreneuriat = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium mb-6">
                 <Rocket className="w-4 h-4" />
-                Entrepreneuriat au Maroc
+                {t("entrepreneuriat.badge")}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Lancez votre <span className="text-gradient">entreprise</span>
+                {t("entrepreneuriat.title")} <span className="text-gradient">{t("entrepreneuriat.title.highlight")}</span>
               </h1>
               <p className="text-lg text-primary-foreground/70 mb-8">
-                Guide complet pour créer et développer votre entreprise au Maroc. 
-                Statuts juridiques, démarches administratives, financements.
+                {t("entrepreneuriat.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button variant="hero" size="xl" asChild>
                   <a href="#guide">
-                    Commencer le guide
+                    {t("entrepreneuriat.cta.guide")}
                     <ArrowRight className="w-5 h-5" />
                   </a>
                 </Button>
                 <Button variant="hero-outline" size="lg" asChild>
-                  <a href="#business-plan">Créer mon business plan</a>
+                  <a href="#business-plan">{t("entrepreneuriat.cta.plan")}</a>
                 </Button>
               </div>
             </div>
@@ -112,13 +125,13 @@ const Entrepreneuriat = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Les étapes clés
+                {t("entrepreneuriat.steps.badge")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Créer votre entreprise en <span className="text-gradient">4 étapes</span>
+                {t("entrepreneuriat.steps.title")} <span className="text-gradient">{t("entrepreneuriat.steps.title.highlight")}</span>
               </h2>
               <p className="text-muted-foreground">
-                Un parcours structuré pour transformer votre idée en réalité.
+                {t("entrepreneuriat.steps.description")}
               </p>
             </div>
 
@@ -158,13 +171,13 @@ const Entrepreneuriat = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Statuts juridiques
+                {t("entrepreneuriat.statuts.badge")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Choisissez le bon statut
+                {t("entrepreneuriat.statuts.title")}
               </h2>
               <p className="text-muted-foreground">
-                Comparez les différentes formes juridiques pour trouver celle qui vous convient.
+                {t("entrepreneuriat.statuts.description")}
               </p>
             </div>
 
@@ -188,7 +201,7 @@ const Entrepreneuriat = () => {
 
                   <div className="p-3 rounded-lg bg-accent/5 border border-accent/20">
                     <p className="text-xs text-muted-foreground">
-                      <span className="font-medium text-accent">Idéal pour : </span>
+                      <span className="font-medium text-accent">{t("entrepreneuriat.statuts.ideal")} </span>
                       {statut.bestFor}
                     </p>
                   </div>
@@ -204,14 +217,13 @@ const Entrepreneuriat = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                  Financements
+                  {t("entrepreneuriat.financing.badge")}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Trouvez les <span className="text-gradient">financements</span> adaptés
+                  {t("entrepreneuriat.financing.title")} <span className="text-gradient">{t("entrepreneuriat.financing.title.highlight")}</span> {t("entrepreneuriat.financing.title.end")}
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Le Maroc offre de nombreuses opportunités de financement pour les entrepreneurs. 
-                  Découvrez les programmes qui correspondent à votre projet.
+                  {t("entrepreneuriat.financing.description")}
                 </p>
 
                 <div className="space-y-4">
@@ -232,19 +244,19 @@ const Entrepreneuriat = () => {
 
               {/* Stats Card */}
               <div className="p-8 rounded-2xl bg-hero-gradient text-primary-foreground">
-                <h3 className="text-2xl font-bold mb-8">Le saviez-vous ?</h3>
+                <h3 className="text-2xl font-bold mb-8">{t("entrepreneuriat.stats.title")}</h3>
                 <div className="space-y-8">
                   <div>
                     <div className="text-4xl font-bold text-accent mb-2">+50%</div>
-                    <p className="text-primary-foreground/70">d'entreprises créées en 5 ans au Maroc</p>
+                    <p className="text-primary-foreground/70">{t("entrepreneuriat.stats.1")}</p>
                   </div>
                   <div>
                     <div className="text-4xl font-bold text-accent mb-2">100K+</div>
-                    <p className="text-primary-foreground/70">auto-entrepreneurs actifs</p>
+                    <p className="text-primary-foreground/70">{t("entrepreneuriat.stats.2")}</p>
                   </div>
                   <div>
                     <div className="text-4xl font-bold text-accent mb-2">15+</div>
-                    <p className="text-primary-foreground/70">incubateurs et accélérateurs</p>
+                    <p className="text-primary-foreground/70">{t("entrepreneuriat.stats.3")}</p>
                   </div>
                 </div>
               </div>
@@ -257,22 +269,21 @@ const Entrepreneuriat = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Outil gratuit
+                {t("entrepreneuriat.plan.badge")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Créez votre <span className="text-gradient">Business Plan</span>
+                {t("entrepreneuriat.plan.title")} <span className="text-gradient">{t("entrepreneuriat.plan.title.highlight")}</span>
               </h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Notre outil simplifié vous guide étape par étape pour créer un business plan 
-                professionnel et convaincant.
+                {t("entrepreneuriat.plan.description")}
               </p>
 
               <div className="p-8 rounded-2xl bg-card border border-border shadow-card">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                   {[
-                    { icon: Target, title: "Résumé exécutif", desc: "Présentez votre vision" },
-                    { icon: Users, title: "Étude de marché", desc: "Analysez votre cible" },
-                    { icon: Wallet, title: "Plan financier", desc: "Projetez vos revenus" },
+                    { icon: Target, title: t("entrepreneuriat.plan.summary"), desc: t("entrepreneuriat.plan.summary.desc") },
+                    { icon: Users, title: t("entrepreneuriat.plan.market"), desc: t("entrepreneuriat.plan.market.desc") },
+                    { icon: Wallet, title: t("entrepreneuriat.plan.financial"), desc: t("entrepreneuriat.plan.financial.desc") },
                   ].map((item, i) => (
                     <div key={i} className="p-4 rounded-xl bg-muted/50">
                       <item.icon className="w-8 h-8 text-accent mb-3 mx-auto" />
@@ -283,7 +294,7 @@ const Entrepreneuriat = () => {
                 </div>
                 <Button variant="accent" size="lg" asChild>
                   <Link to="/register">
-                    Commencer mon business plan
+                    {t("entrepreneuriat.plan.cta")}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>

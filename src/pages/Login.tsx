@@ -2,15 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic
     console.log("Login:", { email, password });
   };
 
@@ -21,20 +23,18 @@ const Login = () => {
         <div className="w-full max-w-md">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 bg-accent-gradient rounded-lg rotate-6" />
-              <div className="relative bg-primary rounded-lg w-9 h-9 flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">N</span>
-              </div>
-            </div>
-            <span className="font-bold text-xl text-foreground">NEXT STEP</span>
+            <img 
+              src={logo} 
+              alt="Next Step Logo" 
+              className="h-16 w-auto object-contain"
+            />
           </Link>
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Bon retour !</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">{t("login.title")}</h1>
             <p className="text-muted-foreground">
-              Connectez-vous pour continuer votre parcours.
+              {t("login.subtitle")}
             </p>
           </div>
 
@@ -46,7 +46,7 @@ const Login = () => {
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
             </svg>
-            Continuer avec Google
+            {t("login.google")}
           </Button>
 
           {/* Divider */}
@@ -55,7 +55,7 @@ const Login = () => {
               <div className="w-full border-t border-border" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-background text-muted-foreground">ou</span>
+              <span className="px-4 bg-background text-muted-foreground">{t("login.or")}</span>
             </div>
           </div>
 
@@ -66,7 +66,7 @@ const Login = () => {
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t("login.email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full h-12 pl-12 pr-4 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -79,7 +79,7 @@ const Login = () => {
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Mot de passe"
+                placeholder={t("login.password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full h-12 pl-12 pr-12 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -97,22 +97,22 @@ const Login = () => {
             {/* Forgot Password */}
             <div className="flex justify-end">
               <Link to="/forgot-password" className="text-sm text-accent hover:underline">
-                Mot de passe oublié ?
+                {t("login.forgot")}
               </Link>
             </div>
 
             {/* Submit */}
             <Button variant="accent" size="lg" className="w-full" type="submit">
-              Se connecter
+              {t("login.submit")}
               <ArrowRight className="w-5 h-5" />
             </Button>
           </form>
 
           {/* Register Link */}
           <p className="mt-8 text-center text-muted-foreground">
-            Pas encore de compte ?{" "}
+            {t("login.noAccount")}{" "}
             <Link to="/register" className="text-accent font-medium hover:underline">
-              S'inscrire gratuitement
+              {t("login.register")}
             </Link>
           </p>
         </div>
@@ -128,10 +128,10 @@ const Login = () => {
             </div>
           </div>
           <h2 className="text-3xl font-bold text-primary-foreground mb-4">
-            Bienvenue sur NEXT STEP
+            {t("login.welcome")}
           </h2>
           <p className="text-primary-foreground/70">
-            La plateforme qui vous accompagne vers votre réussite professionnelle au Maroc.
+            {t("login.welcomeDesc")}
           </p>
         </div>
       </div>

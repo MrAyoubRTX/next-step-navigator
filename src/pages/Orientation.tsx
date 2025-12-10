@@ -10,46 +10,60 @@ import {
   BookOpen, 
   Target, 
   TrendingUp,
-  ChevronRight,
-  Play
+  ChevronRight
 } from "lucide-react";
-
-const parcours = [
-  {
-    id: 1,
-    title: "Marketing Digital",
-    duration: "6 mois",
-    level: "Débutant",
-    description: "Maîtrisez les fondamentaux du marketing numérique.",
-    skills: ["SEO", "Social Media", "Analytics", "Content Marketing"],
-  },
-  {
-    id: 2,
-    title: "Développement Web",
-    duration: "12 mois",
-    level: "Intermédiaire",
-    description: "Devenez développeur web full-stack.",
-    skills: ["HTML/CSS", "JavaScript", "React", "Node.js"],
-  },
-  {
-    id: 3,
-    title: "Gestion de Projet",
-    duration: "4 mois",
-    level: "Débutant",
-    description: "Apprenez à gérer des projets avec agilité.",
-    skills: ["Scrum", "Kanban", "Leadership", "Communication"],
-  },
-];
-
-const testQuestions = [
-  "Aimez-vous résoudre des problèmes complexes ?",
-  "Préférez-vous travailler en équipe ou seul ?",
-  "Êtes-vous à l'aise avec les nouvelles technologies ?",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Orientation = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
+  const { t } = useLanguage();
+
+  const testQuestions = [
+    t("orientation.test.q1"),
+    t("orientation.test.q2"),
+    t("orientation.test.q3"),
+  ];
+
+  const answerOptions = [
+    t("orientation.test.a1"),
+    t("orientation.test.a2"),
+    t("orientation.test.a3"),
+  ];
+
+  const parcours = [
+    {
+      id: 1,
+      title: "Marketing Digital",
+      duration: "6 mois",
+      level: t("orientation.level.beginner"),
+      description: t("orientation.path.marketing.desc"),
+      skills: ["SEO", "Social Media", "Analytics", "Content Marketing"],
+    },
+    {
+      id: 2,
+      title: "Développement Web",
+      duration: "12 mois",
+      level: t("orientation.level.intermediate"),
+      description: t("orientation.path.dev.desc"),
+      skills: ["HTML/CSS", "JavaScript", "React", "Node.js"],
+    },
+    {
+      id: 3,
+      title: "Gestion de Projet",
+      duration: "4 mois",
+      level: t("orientation.level.beginner"),
+      description: t("orientation.path.project.desc"),
+      skills: ["Scrum", "Kanban", "Leadership", "Communication"],
+    },
+  ];
+
+  const roadmapSteps = [
+    t("orientation.roadmap.step1"),
+    t("orientation.roadmap.step2"),
+    t("orientation.roadmap.step3"),
+    t("orientation.roadmap.step4"),
+  ];
 
   const handleAnswer = (score: number) => {
     setAnswers([...answers, score]);
@@ -68,18 +82,17 @@ const Orientation = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium mb-6">
                 <Compass className="w-4 h-4" />
-                Orientation professionnelle
+                {t("orientation.badge")}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Trouvez votre <span className="text-gradient">voie</span>
+                {t("orientation.title")} <span className="text-gradient">{t("orientation.title.highlight")}</span>
               </h1>
               <p className="text-lg text-primary-foreground/70 mb-8">
-                Tests interactifs, parcours recommandés et roadmaps personnalisées 
-                pour construire votre avenir professionnel.
+                {t("orientation.description")}
               </p>
               <Button variant="hero" size="xl" asChild>
                 <a href="#test">
-                  Commencer le test
+                  {t("orientation.cta")}
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </Button>
@@ -93,20 +106,20 @@ const Orientation = () => {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
                 <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                  Test rapide
+                  {t("orientation.test.badge")}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Découvrez votre profil
+                  {t("orientation.test.title")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Répondez à quelques questions pour découvrir les parcours qui vous correspondent.
+                  {t("orientation.test.description")}
                 </p>
               </div>
 
               {/* Progress Bar */}
               <div className="mb-8">
                 <div className="flex justify-between text-sm text-muted-foreground mb-2">
-                  <span>Question {Math.min(currentStep + 1, testQuestions.length)} / {testQuestions.length}</span>
+                  <span>{t("orientation.test.question")} {Math.min(currentStep + 1, testQuestions.length)} / {testQuestions.length}</span>
                   <span>{Math.round((answers.length / testQuestions.length) * 100)}%</span>
                 </div>
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
@@ -124,7 +137,7 @@ const Orientation = () => {
                     {testQuestions[currentStep]}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {["Pas du tout", "Parfois", "Tout à fait"].map((option, index) => (
+                    {answerOptions.map((option, index) => (
                       <button
                         key={option}
                         onClick={() => handleAnswer(index + 1)}
@@ -140,13 +153,13 @@ const Orientation = () => {
                   <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-8 h-8 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Test complété !</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{t("orientation.test.complete")}</h3>
                   <p className="text-muted-foreground mb-6">
-                    D'après vos réponses, voici les parcours qui vous correspondent le mieux.
+                    {t("orientation.test.complete.desc")}
                   </p>
                   <Button variant="accent" size="lg" asChild>
                     <a href="#parcours">
-                      Voir les résultats
+                      {t("orientation.test.results")}
                       <ArrowRight className="w-5 h-5" />
                     </a>
                   </Button>
@@ -161,13 +174,13 @@ const Orientation = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Parcours recommandés
+                {t("orientation.paths.badge")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Explorez les opportunités
+                {t("orientation.paths.title")}
               </h2>
               <p className="text-muted-foreground">
-                Des parcours structurés pour vous guider vers la réussite.
+                {t("orientation.paths.description")}
               </p>
             </div>
 
@@ -195,7 +208,7 @@ const Orientation = () => {
                     ))}
                   </div>
                   <Button variant="ghost" className="w-full group-hover:text-accent">
-                    Voir le parcours
+                    {t("orientation.paths.view")}
                     <ChevronRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -210,20 +223,19 @@ const Orientation = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                  Roadmap interactive
+                  {t("orientation.roadmap.badge")}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Visualisez votre parcours <span className="text-gradient">étape par étape</span>
+                  {t("orientation.roadmap.title")} <span className="text-gradient">{t("orientation.roadmap.title.highlight")}</span>
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Notre outil de roadmap vous permet de suivre votre progression, 
-                  de planifier vos objectifs et de célébrer chaque accomplissement.
+                  {t("orientation.roadmap.description")}
                 </p>
                 <div className="space-y-4 mb-8">
                   {[
-                    { icon: Target, text: "Objectifs clairs et mesurables" },
-                    { icon: TrendingUp, text: "Suivi de progression en temps réel" },
-                    { icon: BookOpen, text: "Ressources adaptées à chaque étape" },
+                    { icon: Target, text: t("orientation.roadmap.f1") },
+                    { icon: TrendingUp, text: t("orientation.roadmap.f2") },
+                    { icon: BookOpen, text: t("orientation.roadmap.f3") },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -235,7 +247,7 @@ const Orientation = () => {
                 </div>
                 <Button variant="accent" size="lg" asChild>
                   <Link to="/register">
-                    Créer ma roadmap
+                    {t("orientation.roadmap.cta")}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
@@ -245,7 +257,7 @@ const Orientation = () => {
               <div className="relative">
                 <div className="p-8 rounded-2xl bg-card border border-border shadow-card">
                   <div className="space-y-6">
-                    {["Définir vos objectifs", "Suivre une formation", "Obtenir un stage", "Décrocher un emploi"].map((step, i) => (
+                    {roadmapSteps.map((step, i) => (
                       <div key={i} className="flex items-center gap-4">
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${i <= 1 ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"}`}>
                           {i <= 1 ? <CheckCircle2 className="w-5 h-5" /> : <span className="font-semibold">{i + 1}</span>}

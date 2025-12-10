@@ -2,70 +2,78 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, User, Tag } from "lucide-react";
-
-const featuredPost = {
-  id: 1,
-  title: "Comment réussir sa reconversion professionnelle au Maroc en 2024",
-  excerpt: "Guide complet pour changer de carrière avec succès. Découvrez les étapes clés, les erreurs à éviter et les opportunités du marché marocain.",
-  author: "Équipe NEXT STEP",
-  date: "5 Décembre 2024",
-  readTime: "8 min",
-  category: "Orientation",
-  image: "gradient",
-};
-
-const posts = [
-  {
-    id: 2,
-    title: "Top 10 des secteurs qui recrutent des stagiaires",
-    excerpt: "Découvrez les domaines les plus porteurs pour décrocher votre stage.",
-    author: "Leila Bennani",
-    date: "3 Décembre 2024",
-    readTime: "5 min",
-    category: "Stages",
-  },
-  {
-    id: 3,
-    title: "Créer son entreprise : les erreurs à éviter",
-    excerpt: "Les pièges classiques des jeunes entrepreneurs et comment les contourner.",
-    author: "Karim Tazi",
-    date: "1 Décembre 2024",
-    readTime: "6 min",
-    category: "Entrepreneuriat",
-  },
-  {
-    id: 4,
-    title: "Rédiger un CV qui se démarque",
-    excerpt: "Conseils pratiques pour créer un CV percutant adapté au marché marocain.",
-    author: "Sara El Fassi",
-    date: "28 Novembre 2024",
-    readTime: "4 min",
-    category: "Carrière",
-  },
-  {
-    id: 5,
-    title: "Les soft skills les plus recherchées en 2024",
-    excerpt: "Quelles compétences comportementales développer pour booster votre carrière.",
-    author: "Ahmed Moussaoui",
-    date: "25 Novembre 2024",
-    readTime: "5 min",
-    category: "Orientation",
-  },
-  {
-    id: 6,
-    title: "Financer sa startup : guide complet",
-    excerpt: "Toutes les options de financement disponibles pour les entrepreneurs marocains.",
-    author: "Équipe NEXT STEP",
-    date: "22 Novembre 2024",
-    readTime: "7 min",
-    category: "Entrepreneuriat",
-  },
-];
-
-const categories = ["Tous", "Orientation", "Stages", "Entrepreneuriat", "Carrière"];
+import { ArrowRight, Clock, User } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Blog = () => {
+  const { t } = useLanguage();
+
+  const featuredPost = {
+    id: 1,
+    title: t("blog.featured.title"),
+    excerpt: t("blog.featured.excerpt"),
+    author: t("blog.featured.author"),
+    date: t("blog.featured.date"),
+    readTime: t("blog.featured.readTime"),
+    category: t("blog.category.orientation"),
+  };
+
+  const posts = [
+    {
+      id: 2,
+      title: t("blog.post1.title"),
+      excerpt: t("blog.post1.excerpt"),
+      author: "Leila Bennani",
+      date: t("blog.post1.date"),
+      readTime: "5 min",
+      category: t("blog.category.stages"),
+    },
+    {
+      id: 3,
+      title: t("blog.post2.title"),
+      excerpt: t("blog.post2.excerpt"),
+      author: "Karim Tazi",
+      date: t("blog.post2.date"),
+      readTime: "6 min",
+      category: t("blog.category.entrepreneuriat"),
+    },
+    {
+      id: 4,
+      title: t("blog.post3.title"),
+      excerpt: t("blog.post3.excerpt"),
+      author: "Sara El Fassi",
+      date: t("blog.post3.date"),
+      readTime: "4 min",
+      category: t("blog.category.career"),
+    },
+    {
+      id: 5,
+      title: t("blog.post4.title"),
+      excerpt: t("blog.post4.excerpt"),
+      author: "Ahmed Moussaoui",
+      date: t("blog.post4.date"),
+      readTime: "5 min",
+      category: t("blog.category.orientation"),
+    },
+    {
+      id: 6,
+      title: t("blog.post5.title"),
+      excerpt: t("blog.post5.excerpt"),
+      author: t("blog.featured.author"),
+      date: t("blog.post5.date"),
+      readTime: "7 min",
+      category: t("blog.category.entrepreneuriat"),
+    },
+  ];
+
+  const categories = [
+    t("blog.category.all"),
+    t("blog.category.orientation"),
+    t("blog.category.stages"),
+    t("blog.category.entrepreneuriat"),
+    t("blog.category.career"),
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -75,23 +83,23 @@ const Blog = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Blog & Ressources
+                {t("blog.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Conseils et <span className="text-gradient">inspirations</span>
+                {t("blog.title")} <span className="text-gradient">{t("blog.title.highlight")}</span>
               </h1>
               <p className="text-muted-foreground">
-                Articles, guides et témoignages pour vous accompagner dans votre parcours.
+                {t("blog.description")}
               </p>
             </div>
 
             {/* Categories */}
             <div className="flex flex-wrap justify-center gap-2 mb-12">
-              {categories.map((cat) => (
+              {categories.map((cat, index) => (
                 <button
                   key={cat}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    cat === "Tous"
+                    index === 0
                       ? "bg-accent text-accent-foreground"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
@@ -126,12 +134,12 @@ const Blog = () => {
                   <span>{featuredPost.date}</span>
                   <span className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    {featuredPost.readTime} de lecture
+                    {featuredPost.readTime} {t("blog.readTime")}
                   </span>
                 </div>
                 <Button variant="hero" asChild>
                   <Link to={`/blog/${featuredPost.id}`}>
-                    Lire l'article
+                    {t("blog.readArticle")}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
@@ -143,7 +151,7 @@ const Blog = () => {
         {/* Posts Grid */}
         <section className="py-16 bg-muted/50">
           <div className="container mx-auto px-4 lg:px-8">
-            <h3 className="text-2xl font-bold text-foreground mb-8">Derniers articles</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-8">{t("blog.latestArticles")}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
                 <Link
@@ -182,7 +190,7 @@ const Blog = () => {
             {/* Load More */}
             <div className="mt-12 text-center">
               <Button variant="outline" size="lg">
-                Charger plus d'articles
+                {t("blog.loadMore")}
               </Button>
             </div>
           </div>
@@ -193,19 +201,19 @@ const Blog = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-foreground mb-4">
-                Restez informé
+                {t("blog.newsletter.title")}
               </h2>
               <p className="text-muted-foreground mb-8">
-                Recevez nos meilleurs conseils et actualités directement dans votre boîte mail.
+                {t("blog.newsletter.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Votre email"
+                  placeholder={t("blog.newsletter.placeholder")}
                   className="flex-1 h-12 px-4 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                 />
                 <Button variant="accent" size="lg">
-                  S'abonner
+                  {t("blog.newsletter.subscribe")}
                 </Button>
               </div>
             </div>
