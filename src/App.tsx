@@ -10,6 +10,7 @@ import Orientation from "./pages/Orientation";
 import Stages from "./pages/Stages";
 import Entrepreneuriat from "./pages/Entrepreneuriat";
 import Pricing from "./pages/Pricing";
+import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/stages" element={<Stages />} />
               <Route path="/entrepreneuriat" element={<Entrepreneuriat />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

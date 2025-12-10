@@ -1,16 +1,39 @@
-import { CheckCircle2, Target, Users, TrendingUp, BookOpen, Award } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function FeaturesSection() {
   const { t } = useLanguage();
 
   const features = [
-    { icon: Target, titleKey: "features.orientation.title", descKey: "features.orientation.desc" },
-    { icon: Users, titleKey: "features.coaching.title", descKey: "features.coaching.desc" },
-    { icon: TrendingUp, titleKey: "features.roadmap.title", descKey: "features.roadmap.desc" },
-    { icon: BookOpen, titleKey: "features.resources.title", descKey: "features.resources.desc" },
-    { icon: Award, titleKey: "features.certifications.title", descKey: "features.certifications.desc" },
-    { icon: CheckCircle2, titleKey: "features.progress.title", descKey: "features.progress.desc" },
+    { 
+      titleKey: "features.orientation.title", 
+      descKey: "features.orientation.desc",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop"
+    },
+    { 
+      titleKey: "features.coaching.title", 
+      descKey: "features.coaching.desc",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop"
+    },
+    { 
+      titleKey: "features.roadmap.title", 
+      descKey: "features.roadmap.desc",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    },
+    { 
+      titleKey: "features.resources.title", 
+      descKey: "features.resources.desc",
+      image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop"
+    },
+    { 
+      titleKey: "features.certifications.title", 
+      descKey: "features.certifications.desc",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop"
+    },
+    { 
+      titleKey: "features.progress.title", 
+      descKey: "features.progress.desc",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+    },
   ];
 
   return (
@@ -31,13 +54,19 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-accent/50 hover:shadow-card-hover transition-all duration-300"
+              className="group relative rounded-2xl bg-card border border-border hover:border-accent/50 hover:shadow-card-hover transition-all duration-300 overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                <feature.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={feature.image} 
+                  alt={t(feature.titleKey)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t(feature.titleKey)}</h3>
-              <p className="text-muted-foreground">{t(feature.descKey)}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-3">{t(feature.titleKey)}</h3>
+                <p className="text-muted-foreground">{t(feature.descKey)}</p>
+              </div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
           ))}

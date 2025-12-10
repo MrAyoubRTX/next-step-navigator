@@ -30,6 +30,7 @@ export function Navbar() {
     { name: t("nav.stages"), href: "/stages" },
     { name: t("nav.entrepreneuriat"), href: "/entrepreneuriat" },
     { name: t("nav.pricing"), href: "/pricing" },
+    { name: t("nav.about"), href: "/about" },
     { name: t("nav.blog"), href: "/blog" },
   ];
 
@@ -42,7 +43,7 @@ export function Navbar() {
             <img 
               src={logo} 
               alt="Next Step Logo" 
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain"
             />
           </Link>
 

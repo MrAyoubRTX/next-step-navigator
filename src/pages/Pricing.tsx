@@ -2,79 +2,81 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PricingCard } from "@/components/pricing/PricingCard";
 import { Check, HelpCircle } from "lucide-react";
-
-const pricingPlans = [
-  {
-    name: "Free",
-    price: "0",
-    period: "MAD",
-    description: "Parfait pour découvrir la plateforme",
-    features: [
-      "Tests d'orientation basiques",
-      "Accès aux offres de stage",
-      "Articles & ressources gratuites",
-      "Guide 'Créer une entreprise'",
-      "Support par email",
-    ],
-    buttonText: "Commencer gratuitement",
-    buttonVariant: "outline" as const,
-  },
-  {
-    name: "Premium",
-    price: "49",
-    period: "MAD / mois",
-    description: "Pour ceux qui veulent accélérer leur parcours",
-    features: [
-      "Tests d'orientation avancés",
-      "Roadmap personnalisée",
-      "Modèles CV pro (Figma + PDF)",
-      "Coaching stage (tips + entretien)",
-      "Templates Business Plan",
-      "Accès prioritaire aux offres",
-      "Support chat 24/7",
-    ],
-    popular: true,
-    buttonText: "Essai gratuit 7 jours",
-  },
-  {
-    name: "Pro+",
-    price: "149",
-    period: "MAD / mois",
-    description: "Accompagnement personnalisé complet",
-    features: [
-      "Tout Premium inclus",
-      "Coaching 1-to-1 (orientation ou business)",
-      "Suivi mensuel personnalisé",
-      "Relecture CV & pitch deck",
-      "Accès illimité à tous les outils",
-      "Mise en relation entreprises",
-      "Support prioritaire dédié",
-    ],
-    buttonText: "Contacter les ventes",
-    buttonVariant: "default" as const,
-  },
-];
-
-const faqs = [
-  {
-    question: "Puis-je changer de plan à tout moment ?",
-    answer: "Oui, vous pouvez upgrader ou downgrader votre plan à tout moment. Les changements prennent effet immédiatement.",
-  },
-  {
-    question: "Y a-t-il un engagement minimum ?",
-    answer: "Non, tous nos plans sont sans engagement. Vous pouvez annuler à tout moment sans frais.",
-  },
-  {
-    question: "Comment fonctionne l'essai gratuit ?",
-    answer: "L'essai gratuit Premium dure 7 jours. Vous pouvez tester toutes les fonctionnalités sans carte bancaire.",
-  },
-  {
-    question: "Quels moyens de paiement acceptez-vous ?",
-    answer: "Nous acceptons les cartes bancaires marocaines et internationales, ainsi que les virements bancaires.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Pricing = () => {
+  const { t } = useLanguage();
+
+  const pricingPlans = [
+    {
+      name: t("pricing.plan1.name"),
+      price: "249",
+      period: "DH",
+      description: t("pricing.plan1.desc"),
+      features: [
+        t("pricing.plan1.f1"),
+        t("pricing.plan1.f2"),
+        t("pricing.plan1.f3"),
+        t("pricing.plan1.f4"),
+        t("pricing.plan1.f5"),
+      ],
+      buttonText: t("pricing.plan1.cta"),
+      buttonVariant: "outline" as const,
+    },
+    {
+      name: t("pricing.plan2.name"),
+      price: "499",
+      period: "DH",
+      description: t("pricing.plan2.desc"),
+      features: [
+        t("pricing.plan2.f1"),
+        t("pricing.plan2.f2"),
+        t("pricing.plan2.f3"),
+        t("pricing.plan2.f4"),
+        t("pricing.plan2.f5"),
+        t("pricing.plan2.f6"),
+      ],
+      popular: true,
+      buttonText: t("pricing.plan2.cta"),
+    },
+    {
+      name: t("pricing.plan3.name"),
+      price: "1299",
+      period: "DH",
+      description: t("pricing.plan3.desc"),
+      features: [
+        t("pricing.plan3.f1"),
+        t("pricing.plan3.f2"),
+        t("pricing.plan3.f3"),
+        t("pricing.plan3.f4"),
+        t("pricing.plan3.f5"),
+        t("pricing.plan3.f6"),
+        t("pricing.plan3.f7"),
+      ],
+      buttonText: t("pricing.plan3.cta"),
+      buttonVariant: "default" as const,
+    },
+  ];
+
+  const faqs = [
+    {
+      question: t("pricing.faq.q1"),
+      answer: t("pricing.faq.a1"),
+    },
+    {
+      question: t("pricing.faq.q2"),
+      answer: t("pricing.faq.a2"),
+    },
+    {
+      question: t("pricing.faq.q3"),
+      answer: t("pricing.faq.a3"),
+    },
+    {
+      question: t("pricing.faq.q4"),
+      answer: t("pricing.faq.a4"),
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -84,15 +86,14 @@ const Pricing = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                Tarification simple
+                {t("pricing.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Investissez dans{" "}
-                <span className="text-gradient">votre avenir</span>
+                {t("pricing.title")}{" "}
+                <span className="text-gradient">{t("pricing.title.highlight")}</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Choisissez le plan qui correspond à vos ambitions. Commencez gratuitement 
-                et évoluez selon vos besoins.
+                {t("pricing.description")}
               </p>
             </div>
 
@@ -107,19 +108,19 @@ const Pricing = () => {
             <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-accent" />
-                Aucune carte requise
+                {t("pricing.nocard")}
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-accent" />
-                Annulation gratuite
+                {t("pricing.cancel")}
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-accent" />
-                Support 24/7
+                {t("pricing.support")}
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-accent" />
-                Paiement sécurisé
+                {t("pricing.secure")}
               </div>
             </div>
           </div>
@@ -130,10 +131,10 @@ const Pricing = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Questions fréquentes
+                {t("pricing.faq.title")}
               </h2>
               <p className="text-muted-foreground">
-                Tout ce que vous devez savoir sur nos offres.
+                {t("pricing.faq.description")}
               </p>
             </div>
 
