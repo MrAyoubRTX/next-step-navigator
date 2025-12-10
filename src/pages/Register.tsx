@@ -2,13 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mail, Lock, User, Eye, EyeOff, ArrowRight, CheckCircle2 } from "lucide-react";
-
-const benefits = [
-  "Tests d'orientation personnalisés",
-  "Accès aux offres de stages",
-  "Guides entrepreneuriat complets",
-  "Ressources CV et entretien",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +12,14 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const { t } = useLanguage();
+
+  const benefits = [
+    t("register.benefit1"),
+    t("register.benefit2"),
+    t("register.benefit3"),
+    t("register.benefit4"),
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,10 +32,10 @@ const Register = () => {
       <div className="hidden lg:flex flex-1 bg-hero-gradient items-center justify-center p-12">
         <div className="max-w-md">
           <h2 className="text-4xl font-bold text-primary-foreground mb-6">
-            Construisez votre avenir avec <span className="text-gradient">NEXT STEP</span>
+            {t("register.heroTitle")} <span className="text-gradient">NEXT STEP</span>
           </h2>
           <p className="text-primary-foreground/70 mb-8">
-            Rejoignez des milliers de Marocains qui ont déjà pris leur avenir en main.
+            {t("register.heroDesc")}
           </p>
           <div className="space-y-4">
             {benefits.map((benefit, i) => (
@@ -52,20 +55,18 @@ const Register = () => {
         <div className="w-full max-w-md">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 bg-accent-gradient rounded-lg rotate-6" />
-              <div className="relative bg-primary rounded-lg w-9 h-9 flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">N</span>
-              </div>
-            </div>
-            <span className="font-bold text-xl text-foreground">NEXT STEP</span>
+            <img 
+              src={logo} 
+              alt="Next Step Logo" 
+              className="h-16 w-auto object-contain"
+            />
           </Link>
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Créer un compte</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">{t("register.title")}</h1>
             <p className="text-muted-foreground">
-              Commencez votre parcours vers la réussite.
+              {t("register.subtitle")}
             </p>
           </div>
 
@@ -77,7 +78,7 @@ const Register = () => {
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
             </svg>
-            S'inscrire avec Google
+            {t("register.google")}
           </Button>
 
           {/* Divider */}
@@ -86,7 +87,7 @@ const Register = () => {
               <div className="w-full border-t border-border" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-background text-muted-foreground">ou</span>
+              <span className="px-4 bg-background text-muted-foreground">{t("register.or")}</span>
             </div>
           </div>
 
@@ -97,7 +98,7 @@ const Register = () => {
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Nom complet"
+                placeholder={t("register.name")}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full h-12 pl-12 pr-4 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -110,7 +111,7 @@ const Register = () => {
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t("register.email")}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full h-12 pl-12 pr-4 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -123,7 +124,7 @@ const Register = () => {
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Mot de passe (min. 8 caractères)"
+                placeholder={t("register.password")}
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full h-12 pl-12 pr-12 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -141,29 +142,29 @@ const Register = () => {
 
             {/* Terms */}
             <p className="text-xs text-muted-foreground">
-              En vous inscrivant, vous acceptez nos{" "}
+              {t("register.terms")}{" "}
               <Link to="/terms" className="text-accent hover:underline">
-                Conditions d'utilisation
+                {t("register.termsLink")}
               </Link>{" "}
-              et notre{" "}
+              {t("register.and")}{" "}
               <Link to="/privacy" className="text-accent hover:underline">
-                Politique de confidentialité
+                {t("register.privacyLink")}
               </Link>
               .
             </p>
 
             {/* Submit */}
             <Button variant="accent" size="lg" className="w-full" type="submit">
-              Créer mon compte
+              {t("register.submit")}
               <ArrowRight className="w-5 h-5" />
             </Button>
           </form>
 
           {/* Login Link */}
           <p className="mt-8 text-center text-muted-foreground">
-            Déjà un compte ?{" "}
+            {t("register.hasAccount")}{" "}
             <Link to="/login" className="text-accent font-medium hover:underline">
-              Se connecter
+              {t("register.login")}
             </Link>
           </p>
         </div>
