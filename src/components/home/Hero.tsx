@@ -75,8 +75,8 @@ export function Hero() {
               <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                 <Briefcase className="w-7 h-7 text-accent group-hover:text-accent-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">{t("hero.card.stages")}</h3>
-              <p className="text-sm text-primary-foreground/60">{t("hero.card.stages.desc")}</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">{t("hero.card.stagesjobs")}</h3>
+              <p className="text-sm text-primary-foreground/60">{t("hero.card.stagesjobs.desc")}</p>
             </Link>
 
             <Link to="/entrepreneuriat" className="group p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 hover:border-accent/50 transition-all duration-300 backdrop-blur-sm">

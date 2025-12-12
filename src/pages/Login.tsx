@@ -22,11 +22,11 @@ const Login = () => {
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 mb-8">
+          <Link to="/" className="flex items-center justify-center mb-8">
             <img 
               src={logo} 
               alt="Next Step Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           </Link>
 

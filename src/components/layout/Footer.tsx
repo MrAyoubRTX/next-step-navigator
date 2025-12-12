@@ -9,14 +9,14 @@ export function Footer() {
   const footerLinks = {
     plateforme: [
       { name: t("nav.orientation"), href: "/orientation" },
-      { name: t("nav.stages"), href: "/stages" },
+      { name: t("footer.stages"), href: "/stages" },
+      { name: t("footer.jobs"), href: "/stages" },
       { name: t("nav.entrepreneuriat"), href: "/entrepreneuriat" },
       { name: t("nav.pricing"), href: "/pricing" },
     ],
     ressources: [
-      { name: t("nav.blog"), href: "/blog" },
-      { name: "Guides", href: "/guides" },
-      { name: "FAQ", href: "/faq" },
+      { name: t("footer.blog"), href: "/blog" },
+      { name: t("footer.faq"), href: "/faq" },
     ],
   };
 
@@ -26,7 +26,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="NEXT STEP" className="h-10 w-auto" />
+              <img src={logo} alt="NEXT STEP" className="h-24 w-auto" />
             </Link>
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">{t("footer.description")}</p>
             <div className="flex items-center gap-4">
@@ -42,7 +42,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">{t("footer.platform")}</h4>
             <ul className="space-y-3">
               {footerLinks.plateforme.map((link) => (
-                <li key={link.href}>
+                <li key={link.href + link.name}>
                   <Link to={link.href} className="text-sm text-primary-foreground/70 hover:text-accent transition-colors">{link.name}</Link>
                 </li>
               ))}
@@ -71,7 +71,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
-          <p className="text-sm text-primary-foreground/50">© 2024 NEXT STEP. {t("footer.rights")}</p>
+          <p className="text-sm text-primary-foreground/50">© 2026 NEXT STEP. {t("footer.rights")}</p>
         </div>
       </div>
     </footer>

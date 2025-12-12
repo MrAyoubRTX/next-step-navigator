@@ -7,17 +7,17 @@ export function FeaturesSection() {
     { 
       titleKey: "features.orientation.title", 
       descKey: "features.orientation.desc",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop"
     },
     { 
       titleKey: "features.coaching.title", 
       descKey: "features.coaching.desc",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop"
     },
     { 
       titleKey: "features.roadmap.title", 
       descKey: "features.roadmap.desc",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
     },
     { 
       titleKey: "features.resources.title", 
@@ -25,14 +25,9 @@ export function FeaturesSection() {
       image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop"
     },
     { 
-      titleKey: "features.certifications.title", 
-      descKey: "features.certifications.desc",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop"
-    },
-    { 
       titleKey: "features.progress.title", 
       descKey: "features.progress.desc",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
     },
   ];
 
