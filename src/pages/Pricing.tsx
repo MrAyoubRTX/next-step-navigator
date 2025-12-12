@@ -108,10 +108,6 @@ const Pricing = () => {
             <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Check className="w-5 h-5 text-accent" />
-                {t("pricing.nocard")}
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-5 h-5 text-accent" />
                 {t("pricing.cancel")}
               </div>
               <div className="flex items-center gap-2">

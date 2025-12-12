@@ -86,7 +86,7 @@ const Blog = () => {
                 {t("blog.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                {t("blog.title")} <span className="text-gradient">{t("blog.title.highlight")}</span>
+                {t("blog.page.title")} <span className="text-gradient">{t("blog.page.title.highlight")}</span>
               </h1>
               <p className="text-muted-foreground">
                 {t("blog.description")}
