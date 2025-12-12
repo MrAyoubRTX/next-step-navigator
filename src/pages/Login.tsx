@@ -22,19 +22,19 @@ const Login = () => {
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center mb-8">
+          <Link to="/" className="flex items-center justify-center mb-6">
             <img 
               src={logo} 
               alt="Next Step Logo" 
-              className="h-28 w-auto object-contain"
+              className="h-36 md:h-44 w-auto object-contain"
             />
           </Link>
 
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">{t("login.title")}</h1>
+          <div className="mb-8 text-center">
+            <h1 className="text-3xl font-bold text-foreground mb-2">{t("login.welcome")}</h1>
             <p className="text-muted-foreground">
-              {t("login.subtitle")}
+              {t("login.welcomeDesc")}
             </p>
           </div>
 

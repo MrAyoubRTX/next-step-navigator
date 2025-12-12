@@ -43,7 +43,7 @@ export function Navbar() {
             <img 
               src={logo} 
               alt="Next Step Logo" 
-              className="h-16 md:h-24 w-auto object-contain"
+              className="h-20 md:h-28 w-auto object-contain"
             />
           </Link>
 
