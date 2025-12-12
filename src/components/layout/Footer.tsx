@@ -26,7 +26,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="NEXT STEP" className="h-24 w-auto" />
+              <img src={logo} alt="NEXT STEP" className="h-32 md:h-40 w-auto" />
             </Link>
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">{t("footer.description")}</p>
             <div className="flex items-center gap-4">

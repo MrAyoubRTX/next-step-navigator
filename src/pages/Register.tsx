@@ -54,11 +54,11 @@ const Register = () => {
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center mb-8">
+          <Link to="/" className="flex items-center justify-center mb-6">
             <img 
               src={logo} 
               alt="Next Step Logo" 
-              className="h-28 w-auto object-contain"
+              className="h-36 md:h-44 w-auto object-contain"
             />
           </Link>
 

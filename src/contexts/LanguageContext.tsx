@@ -924,7 +924,7 @@ const translations: Record<Language, Record<string, string>> = {
     "entrepreneuriat.plan.cta": "ابدأ خطة عملي",
     // Pricing page
     "pricing.badge": "الخطط",
-    "pricing.title": "",
+    "pricing.title": "اكتشف",
     "pricing.title.highlight": "خططنا",
     "pricing.description": "اختر الخطة التي تناسب طموحاتك. استثمر في مستقبلك.",
     "pricing.nocard": "لا حاجة لبطاقة",
