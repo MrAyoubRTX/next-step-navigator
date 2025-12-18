@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70"><Mail className="w-4 h-4" />contact@nextstep.ma</li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70"><Phone className="w-4 h-4" />+212 5 22 00 00 00</li>
-              <li className="flex items-start gap-2 text-sm text-primary-foreground/70"><MapPin className="w-4 h-4 mt-0.5" />Casablanca, Maroc</li>
+              <li className="flex items-start gap-2 text-sm text-primary-foreground/70"><MapPin className="w-4 h-4 mt-0.5" />Marrakech, Maroc</li>
             </ul>
           </div>
         </div>
