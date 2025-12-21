@@ -33,19 +33,40 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.card.orientation.desc": "Tests interactifs et roadmaps personnalisées pour trouver votre voie.",
     "hero.card.stagesjobs": "Stages & Offres de travail",
     "hero.card.stagesjobs.desc": "Offres de stages et emplois ciblées et ressources pour décrocher le poste idéal.",
-    "hero.card.business": "Entrepreneuriat",
-    "hero.card.business.desc": "Guides complets pour créer et lancer votre entreprise au Maroc.",
+    "hero.card.business": "Suivi entrepreneurial",
+    "hero.card.business.desc": "Accompagnement personnalisé étape par étape pour créer et développer votre entreprise au Maroc.",
     "hero.stats.users": "Utilisateurs actifs",
     "hero.stats.offers": "Offres de stage",
     "hero.stats.satisfaction": "Taux de satisfaction",
     "hero.stats.partners": "Partenaires",
-    // Features
-    "features.badge": "Fonctionnalités",
-    "features.title": "Tout ce dont vous avez besoin pour",
-    "features.title.highlight": "réussir",
-    "features.description": "Une plateforme complète qui vous accompagne à chaque étape de votre parcours professionnel.",
-    "features.orientation.title": "Tests d'orientation intelligents",
-    "features.orientation.desc": "Découvrez vos talents et aspirations grâce à nos tests interactifs basés sur la psychologie du travail.",
+    // Features - Services avec experts dédiés
+    "features.badge": "Nos Services",
+    "features.title": "Un accompagnement humain pour",
+    "features.title.highlight": "votre réussite",
+    "features.description": "Chaque service est encadré par un expert dédié qui vous accompagne personnellement à chaque étape de votre parcours.",
+    
+    // Service 1: Orientation
+    "features.orientation.title": "Orientation académique & professionnelle",
+    "features.orientation.desc": "Découvrez votre voie grâce à une analyse approfondie de votre profil, la clarification de vos objectifs et une aide à la prise de décision éclairée.",
+    "features.orientation.expert.name": "Votre expert en orientation",
+    "features.orientation.expert.role": "Conseiller d'orientation certifié",
+    "features.orientation.expert.desc": "Votre expert analyse votre profil, suit votre évolution et ajuste les recommandations selon votre progression pour vous guider vers le parcours idéal.",
+    
+    // Service 2: Stages & Emploi
+    "features.stages.title": "Stages & Offres d'emploi",
+    "features.stages.desc": "Accédez à des opportunités ciblées avec un accompagnement complet : orientation vers les offres adaptées, préparation du CV et des entretiens, suivi jusqu'à l'intégration professionnelle.",
+    "features.stages.expert.name": "Votre expert emploi",
+    "features.stages.expert.role": "Consultant en insertion professionnelle",
+    "features.stages.expert.desc": "Votre expert vous oriente vers les stages et emplois adaptés à votre profil, vous prépare aux entretiens et vous accompagne jusqu'à votre intégration réussie.",
+    
+    // Service 3: Entrepreneuriat
+    "features.entrepreneuriat.title": "Suivi entrepreneurial personnalisé",
+    "features.entrepreneuriat.desc": "Bénéficiez d'un accompagnement bienveillant étape par étape pour transformer votre idée en entreprise prospère, avec un suivi personnalisé de votre projet.",
+    "features.entrepreneuriat.expert.name": "Votre expert entrepreneur",
+    "features.entrepreneuriat.expert.role": "Coach en entrepreneuriat",
+    "features.entrepreneuriat.expert.desc": "Votre expert vous accompagne avec bienveillance dans chaque étape de votre projet : de l'idée au lancement, avec un soutien stratégique et humain permanent.",
+    
+    // Ancien contenu conservé pour compatibilité
     "features.coaching.title": "Coaching personnalisé",
     "features.coaching.desc": "Bénéficiez d'un accompagnement sur-mesure avec nos experts en orientation et carrière.",
     "features.roadmap.title": "Roadmaps de carrière",
@@ -56,6 +77,10 @@ const translations: Record<Language, Record<string, string>> = {
     "features.certifications.desc": "Validez vos compétences avec des certifications valorisées par les employeurs.",
     "features.progress.title": "Suivi de progression",
     "features.progress.desc": "Suivez votre avancement et célébrez chaque étape de votre parcours.",
+    
+    // Section expert commune
+    "features.expert.badge": "Expert dédié à votre réussite",
+    "features.expert.trust": "Un accompagnement humain de confiance",
     // Testimonials
     "testimonials.badge": "Témoignages",
     "testimonials.title": "Ils ont transformé leur",
@@ -402,19 +427,40 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.card.orientation.desc": "Interactive tests and personalized roadmaps to find your path.",
     "hero.card.stagesjobs": "Internships & Jobs",
     "hero.card.stagesjobs.desc": "Targeted internship and job offers with resources to land your ideal position.",
-    "hero.card.business": "Entrepreneurship",
-    "hero.card.business.desc": "Complete guides to create and launch your business in Morocco.",
+    "hero.card.business": "Entrepreneurial Support",
+    "hero.card.business.desc": "Personalized step-by-step guidance to create and develop your business in Morocco.",
     "hero.stats.users": "Active users",
     "hero.stats.offers": "Internship offers",
     "hero.stats.satisfaction": "Satisfaction rate",
     "hero.stats.partners": "Partners",
-    // Features
-    "features.badge": "Features",
-    "features.title": "Everything you need to",
-    "features.title.highlight": "succeed",
-    "features.description": "A complete platform that supports you at every step of your professional journey.",
-    "features.orientation.title": "Smart orientation tests",
-    "features.orientation.desc": "Discover your talents and aspirations through our interactive tests based on work psychology.",
+    // Features - Services with dedicated experts
+    "features.badge": "Our Services",
+    "features.title": "Human support for",
+    "features.title.highlight": "your success",
+    "features.description": "Each service is supervised by a dedicated expert who personally accompanies you at every step of your journey.",
+    
+    // Service 1: Orientation
+    "features.orientation.title": "Academic & Professional Guidance",
+    "features.orientation.desc": "Discover your path through an in-depth profile analysis, goal clarification, and informed decision-making support.",
+    "features.orientation.expert.name": "Your orientation expert",
+    "features.orientation.expert.role": "Certified Career Counselor",
+    "features.orientation.expert.desc": "Your expert analyzes your profile, monitors your progress, and adjusts recommendations based on your evolution to guide you toward the ideal path.",
+    
+    // Service 2: Internships & Jobs
+    "features.stages.title": "Internships & Job Offers",
+    "features.stages.desc": "Access targeted opportunities with comprehensive support: guidance toward suitable offers, CV and interview preparation, follow-up until professional integration.",
+    "features.stages.expert.name": "Your employment expert",
+    "features.stages.expert.role": "Professional Integration Consultant",
+    "features.stages.expert.desc": "Your expert guides you toward internships and jobs suited to your profile, prepares you for interviews, and supports you until your successful integration.",
+    
+    // Service 3: Entrepreneurship
+    "features.entrepreneuriat.title": "Personalized Entrepreneurial Support",
+    "features.entrepreneuriat.desc": "Benefit from caring step-by-step guidance to transform your idea into a thriving business, with personalized project follow-up.",
+    "features.entrepreneuriat.expert.name": "Your entrepreneur expert",
+    "features.entrepreneuriat.expert.role": "Entrepreneurship Coach",
+    "features.entrepreneuriat.expert.desc": "Your expert supports you with care through every stage of your project: from idea to launch, with permanent strategic and human support.",
+    
+    // Legacy content kept for compatibility
     "features.coaching.title": "Personalized coaching",
     "features.coaching.desc": "Get customized support from our career and orientation experts.",
     "features.roadmap.title": "Career roadmaps",
@@ -425,6 +471,10 @@ const translations: Record<Language, Record<string, string>> = {
     "features.certifications.desc": "Validate your skills with certifications valued by employers.",
     "features.progress.title": "Progress tracking",
     "features.progress.desc": "Track your advancement and celebrate each step of your journey.",
+    
+    // Common expert section
+    "features.expert.badge": "Expert dedicated to your success",
+    "features.expert.trust": "Trusted human support",
     // Testimonials
     "testimonials.badge": "Testimonials",
     "testimonials.title": "They transformed their",
@@ -771,19 +821,40 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.card.orientation.desc": "اختبارات تفاعلية وخطط مخصصة لإيجاد طريقك.",
     "hero.card.stagesjobs": "التدريب وفرص العمل",
     "hero.card.stagesjobs.desc": "عروض تدريب وتوظيف مستهدفة وموارد للحصول على الوظيفة المثالية.",
-    "hero.card.business": "ريادة الأعمال",
-    "hero.card.business.desc": "أدلة شاملة لإنشاء وإطلاق مشروعك في المغرب.",
+    "hero.card.business": "الدعم الريادي",
+    "hero.card.business.desc": "مرافقة شخصية خطوة بخطوة لإنشاء وتطوير مشروعك في المغرب.",
     "hero.stats.users": "مستخدم نشط",
     "hero.stats.offers": "عرض تدريب",
     "hero.stats.satisfaction": "معدل الرضا",
     "hero.stats.partners": "شريك",
-    // Features
-    "features.badge": "المميزات",
-    "features.title": "كل ما تحتاجه لتحقيق",
-    "features.title.highlight": "النجاح",
-    "features.description": "منصة متكاملة ترافقك في كل خطوة من مسارك المهني.",
-    "features.orientation.title": "اختبارات توجيه ذكية",
-    "features.orientation.desc": "اكتشف مواهبك وتطلعاتك من خلال اختباراتنا التفاعلية.",
+    // Features - خدمات مع خبراء مخصصين
+    "features.badge": "خدماتنا",
+    "features.title": "دعم إنساني من أجل",
+    "features.title.highlight": "نجاحك",
+    "features.description": "كل خدمة يشرف عليها خبير مخصص يرافقك شخصياً في كل خطوة من مسارك.",
+    
+    // الخدمة 1: التوجيه
+    "features.orientation.title": "التوجيه الأكاديمي والمهني",
+    "features.orientation.desc": "اكتشف طريقك من خلال تحليل معمق لملفك الشخصي، وتوضيح أهدافك، ودعم اتخاذ القرارات المستنيرة.",
+    "features.orientation.expert.name": "خبير التوجيه الخاص بك",
+    "features.orientation.expert.role": "مستشار توجيه معتمد",
+    "features.orientation.expert.desc": "يحلل خبيرك ملفك الشخصي، ويتابع تطورك، ويعدل التوصيات وفقاً لتقدمك لإرشادك نحو المسار المثالي.",
+    
+    // الخدمة 2: التدريب والتوظيف
+    "features.stages.title": "التدريب وفرص العمل",
+    "features.stages.desc": "احصل على فرص مستهدفة مع دعم شامل: توجيه نحو العروض المناسبة، إعداد السيرة الذاتية والمقابلات، متابعة حتى الاندماج المهني.",
+    "features.stages.expert.name": "خبير التوظيف الخاص بك",
+    "features.stages.expert.role": "مستشار الاندماج المهني",
+    "features.stages.expert.desc": "يوجهك خبيرك نحو التدريبات والوظائف المناسبة لملفك، ويحضرك للمقابلات، ويدعمك حتى اندماجك الناجح.",
+    
+    // الخدمة 3: ريادة الأعمال
+    "features.entrepreneuriat.title": "دعم ريادي مخصص",
+    "features.entrepreneuriat.desc": "استفد من مرافقة إنسانية خطوة بخطوة لتحويل فكرتك إلى مشروع ناجح، مع متابعة شخصية لمشروعك.",
+    "features.entrepreneuriat.expert.name": "خبير ريادة الأعمال الخاص بك",
+    "features.entrepreneuriat.expert.role": "مدرب ريادة الأعمال",
+    "features.entrepreneuriat.expert.desc": "يرافقك خبيرك بعناية في كل مرحلة من مشروعك: من الفكرة إلى الإطلاق، مع دعم استراتيجي وإنساني دائم.",
+    
+    // المحتوى القديم للتوافق
     "features.coaching.title": "تدريب شخصي",
     "features.coaching.desc": "احصل على دعم مخصص من خبرائنا في التوجيه والمهنة.",
     "features.roadmap.title": "خرائط طريق مهنية",
@@ -794,6 +865,10 @@ const translations: Record<Language, Record<string, string>> = {
     "features.certifications.desc": "صادق على مهاراتك بشهادات يقدرها أصحاب العمل.",
     "features.progress.title": "تتبع التقدم",
     "features.progress.desc": "تابع تقدمك واحتفل بكل خطوة من رحلتك.",
+    
+    // قسم الخبير المشترك
+    "features.expert.badge": "خبير مخصص لنجاحك",
+    "features.expert.trust": "دعم إنساني موثوق",
     // Testimonials
     "testimonials.badge": "شهادات",
     "testimonials.title": "لقد غيروا",
