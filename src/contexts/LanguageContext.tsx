@@ -81,6 +81,40 @@ const translations: Record<Language, Record<string, string>> = {
     // Section expert commune
     "features.expert.badge": "Expert dédié à votre réussite",
     "features.expert.trust": "Un accompagnement humain de confiance",
+    
+    // Experts Section - Page d'accueil
+    "experts.badge": "Nos Experts",
+    "experts.title": "Nos experts, au cœur de",
+    "experts.title.highlight": "votre réussite",
+    "experts.description": "Chaque service est encadré par un expert identifié, expérimenté et responsable de votre progression. Vous n'êtes jamais seul.",
+    
+    // Expert 1: Orientation - Youssef El Amrani
+    "experts.orientation.name": "Youssef El Amrani",
+    "experts.orientation.role": "Expert en orientation & carrière",
+    "experts.orientation.experience": "8 ans d'expérience",
+    "experts.orientation.expertise": "Accompagnement des étudiants et jeunes diplômés, analyse de profil, aide à la prise de décision",
+    "experts.orientation.quote": "Je vous accompagne personnellement tout au long de votre parcours d'orientation pour vous guider vers les meilleures opportunités.",
+    
+    // Expert 2: Stages - Salma Benali
+    "experts.stages.name": "Salma Benali",
+    "experts.stages.role": "Consultante RH & recrutement",
+    "experts.stages.experience": "10 ans d'expérience",
+    "experts.stages.expertise": "Insertion professionnelle, préparation aux entretiens, optimisation CV, mise en relation entreprises",
+    "experts.stages.quote": "Mon objectif est de vous accompagner jusqu'à votre intégration professionnelle réussie, étape par étape.",
+    
+    // Expert 3: Entrepreneuriat - Ahmed Rachidi
+    "experts.entrepreneuriat.name": "Ahmed Rachidi",
+    "experts.entrepreneuriat.role": "Entrepreneur & mentor startup",
+    "experts.entrepreneuriat.experience": "12 ans d'expérience",
+    "experts.entrepreneuriat.expertise": "Création et accompagnement de projets, stratégie d'entreprise, levée de fonds, développement commercial",
+    "experts.entrepreneuriat.quote": "Je vous accompagne avec passion de l'idée au lancement, pour transformer votre vision en réalité.",
+    
+    // Trust message
+    "experts.trust.message": "Derrière chaque parcours, un expert réel vous accompagne",
+    
+    // Auth pages expert reassurance
+    "auth.expert.reassurance": "Derrière chaque parcours, un expert réel vous accompagne",
+    
     // Testimonials
     "testimonials.badge": "Témoignages",
     "testimonials.title": "Ils ont transformé leur",
@@ -475,6 +509,40 @@ const translations: Record<Language, Record<string, string>> = {
     // Common expert section
     "features.expert.badge": "Expert dedicated to your success",
     "features.expert.trust": "Trusted human support",
+    
+    // Experts Section - Homepage
+    "experts.badge": "Our Experts",
+    "experts.title": "Our experts, at the heart of",
+    "experts.title.highlight": "your success",
+    "experts.description": "Each service is supervised by an identified, experienced expert responsible for your progress. You are never alone.",
+    
+    // Expert 1: Orientation - Youssef El Amrani
+    "experts.orientation.name": "Youssef El Amrani",
+    "experts.orientation.role": "Career & Guidance Expert",
+    "experts.orientation.experience": "8 years of experience",
+    "experts.orientation.expertise": "Student and graduate support, profile analysis, decision-making assistance",
+    "experts.orientation.quote": "I personally accompany you throughout your orientation journey to guide you toward the best opportunities.",
+    
+    // Expert 2: Internships - Salma Benali
+    "experts.stages.name": "Salma Benali",
+    "experts.stages.role": "HR & Recruitment Consultant",
+    "experts.stages.experience": "10 years of experience",
+    "experts.stages.expertise": "Professional integration, interview preparation, CV optimization, company connections",
+    "experts.stages.quote": "My goal is to support you until your successful professional integration, step by step.",
+    
+    // Expert 3: Entrepreneurship - Ahmed Rachidi
+    "experts.entrepreneuriat.name": "Ahmed Rachidi",
+    "experts.entrepreneuriat.role": "Entrepreneur & Startup Mentor",
+    "experts.entrepreneuriat.experience": "12 years of experience",
+    "experts.entrepreneuriat.expertise": "Project creation and support, business strategy, fundraising, business development",
+    "experts.entrepreneuriat.quote": "I passionately support you from idea to launch, to turn your vision into reality.",
+    
+    // Trust message
+    "experts.trust.message": "Behind every journey, a real expert supports you",
+    
+    // Auth pages expert reassurance
+    "auth.expert.reassurance": "Behind every journey, a real expert supports you",
+    
     // Testimonials
     "testimonials.badge": "Testimonials",
     "testimonials.title": "They transformed their",
@@ -869,6 +937,40 @@ const translations: Record<Language, Record<string, string>> = {
     // قسم الخبير المشترك
     "features.expert.badge": "خبير مخصص لنجاحك",
     "features.expert.trust": "دعم إنساني موثوق",
+    
+    // قسم الخبراء - الصفحة الرئيسية
+    "experts.badge": "خبراؤنا",
+    "experts.title": "خبراؤنا، في قلب",
+    "experts.title.highlight": "نجاحك",
+    "experts.description": "كل خدمة يشرف عليها خبير محدد وذو خبرة ومسؤول عن تقدمك. لست وحدك أبداً.",
+    
+    // الخبير 1: التوجيه - يوسف العمراني
+    "experts.orientation.name": "يوسف العمراني",
+    "experts.orientation.role": "خبير التوجيه والمهنة",
+    "experts.orientation.experience": "8 سنوات من الخبرة",
+    "experts.orientation.expertise": "مرافقة الطلاب والخريجين، تحليل الملف الشخصي، المساعدة في اتخاذ القرار",
+    "experts.orientation.quote": "أرافقك شخصياً طوال مسار توجيهك لإرشادك نحو أفضل الفرص.",
+    
+    // الخبير 2: التدريب - سلمى بنعلي
+    "experts.stages.name": "سلمى بنعلي",
+    "experts.stages.role": "مستشارة موارد بشرية وتوظيف",
+    "experts.stages.experience": "10 سنوات من الخبرة",
+    "experts.stages.expertise": "الاندماج المهني، التحضير للمقابلات، تحسين السيرة الذاتية، الربط مع الشركات",
+    "experts.stages.quote": "هدفي هو مرافقتك حتى اندماجك المهني الناجح، خطوة بخطوة.",
+    
+    // الخبير 3: ريادة الأعمال - أحمد الرشيدي
+    "experts.entrepreneuriat.name": "أحمد الرشيدي",
+    "experts.entrepreneuriat.role": "رائد أعمال ومرشد للشركات الناشئة",
+    "experts.entrepreneuriat.experience": "12 سنة من الخبرة",
+    "experts.entrepreneuriat.expertise": "إنشاء ومرافقة المشاريع، استراتيجية الأعمال، جمع التمويل، التطوير التجاري",
+    "experts.entrepreneuriat.quote": "أرافقك بشغف من الفكرة إلى الإطلاق، لتحويل رؤيتك إلى واقع.",
+    
+    // رسالة الثقة
+    "experts.trust.message": "وراء كل مسار، خبير حقيقي يرافقك",
+    
+    // طمأنة صفحات التسجيل
+    "auth.expert.reassurance": "وراء كل مسار، خبير حقيقي يرافقك",
+    
     // Testimonials
     "testimonials.badge": "شهادات",
     "testimonials.title": "لقد غيروا",
