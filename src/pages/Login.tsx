@@ -33,9 +33,13 @@ const Login = () => {
           {/* Header */}
           <div className="mb-8 text-center">
             <h1 className="text-3xl font-bold text-foreground mb-2">{t("login.welcome")}</h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               {t("login.welcomeDesc")}
             </p>
+            {/* Expert Reassurance */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+              <span className="text-sm text-foreground font-medium">{t("auth.expert.reassurance")}</span>
+            </div>
           </div>
 
           {/* Google Login */}

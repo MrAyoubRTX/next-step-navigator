@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Compass, Briefcase, Rocket, UserCheck } from "lucide-react";
+import { Compass, Briefcase, Rocket, UserCheck, Award, Clock, Star } from "lucide-react";
 
 export function FeaturesSection() {
   const { t } = useLanguage();
@@ -8,8 +8,9 @@ export function FeaturesSection() {
     { 
       titleKey: "features.orientation.title", 
       descKey: "features.orientation.desc",
-      expertNameKey: "features.orientation.expert.name",
-      expertRoleKey: "features.orientation.expert.role",
+      expertNameKey: "experts.orientation.name",
+      expertRoleKey: "experts.orientation.role",
+      expertExpKey: "experts.orientation.experience",
       expertDescKey: "features.orientation.expert.desc",
       icon: Compass,
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
@@ -19,8 +20,9 @@ export function FeaturesSection() {
     { 
       titleKey: "features.stages.title", 
       descKey: "features.stages.desc",
-      expertNameKey: "features.stages.expert.name",
-      expertRoleKey: "features.stages.expert.role",
+      expertNameKey: "experts.stages.name",
+      expertRoleKey: "experts.stages.role",
+      expertExpKey: "experts.stages.experience",
       expertDescKey: "features.stages.expert.desc",
       icon: Briefcase,
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
@@ -30,8 +32,9 @@ export function FeaturesSection() {
     { 
       titleKey: "features.entrepreneuriat.title", 
       descKey: "features.entrepreneuriat.desc",
-      expertNameKey: "features.entrepreneuriat.expert.name",
-      expertRoleKey: "features.entrepreneuriat.expert.role",
+      expertNameKey: "experts.entrepreneuriat.name",
+      expertRoleKey: "experts.entrepreneuriat.role",
+      expertExpKey: "experts.entrepreneuriat.experience",
       expertDescKey: "features.entrepreneuriat.expert.desc",
       icon: Rocket,
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
@@ -84,7 +87,7 @@ export function FeaturesSection() {
                   <h3 className="text-xl font-bold text-foreground mb-3">{t(service.titleKey)}</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{t(service.descKey)}</p>
                   
-                  {/* Expert Section */}
+                  {/* Expert Section - Enhanced */}
                   <div className="pt-6 border-t border-border">
                     <div className="flex items-center gap-2 mb-4">
                       <UserCheck className="w-4 h-4 text-accent" />
@@ -94,14 +97,23 @@ export function FeaturesSection() {
                     </div>
                     
                     <div className="flex items-start gap-4">
-                      <img 
-                        src={service.expertImage} 
-                        alt={t(service.expertNameKey)}
-                        className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 shadow-md flex-shrink-0"
-                      />
+                      <div className="relative flex-shrink-0">
+                        <img 
+                          src={service.expertImage} 
+                          alt={t(service.expertNameKey)}
+                          className="w-16 h-16 rounded-full object-cover border-2 border-accent/30 shadow-md"
+                        />
+                        <div className="absolute -bottom-1 -right-1 bg-accent rounded-full p-1">
+                          <Star className="w-3 h-3 text-accent-foreground fill-current" />
+                        </div>
+                      </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-foreground text-sm">{t(service.expertNameKey)}</h4>
-                        <p className="text-xs text-accent mb-2">{t(service.expertRoleKey)}</p>
+                        <h4 className="font-bold text-foreground">{t(service.expertNameKey)}</h4>
+                        <p className="text-xs text-accent font-medium mb-1">{t(service.expertRoleKey)}</p>
+                        <div className="flex items-center gap-1 mb-2">
+                          <Clock className="w-3 h-3 text-muted-foreground" />
+                          <span className="text-xs text-muted-foreground">{t(service.expertExpKey)}</span>
+                        </div>
                         <p className="text-xs text-muted-foreground leading-relaxed">{t(service.expertDescKey)}</p>
                       </div>
                     </div>

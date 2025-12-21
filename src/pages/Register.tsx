@@ -65,9 +65,13 @@ const Register = () => {
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">{t("register.title")}</h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               {t("register.subtitle")}
             </p>
+            {/* Expert Reassurance */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+              <span className="text-sm text-foreground font-medium">{t("auth.expert.reassurance")}</span>
+            </div>
           </div>
 
           {/* Google Register */}
