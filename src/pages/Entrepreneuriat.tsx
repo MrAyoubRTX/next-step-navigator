@@ -68,6 +68,16 @@ const Entrepreneuriat = () => {
       bestFor: t("entrepreneuriat.statut.sarl.best"),
     },
     {
+      name: "SARL AU",
+      description: t("entrepreneuriat.statut.sarlau.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.sarlau.adv1"),
+        t("entrepreneuriat.statut.sarlau.adv2"),
+        t("entrepreneuriat.statut.sarlau.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.sarlau.best"),
+    },
+    {
       name: "SA",
       description: t("entrepreneuriat.statut.sa.desc"),
       advantages: [
@@ -76,6 +86,56 @@ const Entrepreneuriat = () => {
         t("entrepreneuriat.statut.sa.adv3"),
       ],
       bestFor: t("entrepreneuriat.statut.sa.best"),
+    },
+    {
+      name: "SAS",
+      description: t("entrepreneuriat.statut.sas.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.sas.adv1"),
+        t("entrepreneuriat.statut.sas.adv2"),
+        t("entrepreneuriat.statut.sas.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.sas.best"),
+    },
+    {
+      name: "SNC",
+      description: t("entrepreneuriat.statut.snc.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.snc.adv1"),
+        t("entrepreneuriat.statut.snc.adv2"),
+        t("entrepreneuriat.statut.snc.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.snc.best"),
+    },
+    {
+      name: "SCS",
+      description: t("entrepreneuriat.statut.scs.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.scs.adv1"),
+        t("entrepreneuriat.statut.scs.adv2"),
+        t("entrepreneuriat.statut.scs.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.scs.best"),
+    },
+    {
+      name: "GIE",
+      description: t("entrepreneuriat.statut.gie.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.gie.adv1"),
+        t("entrepreneuriat.statut.gie.adv2"),
+        t("entrepreneuriat.statut.gie.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.gie.best"),
+    },
+    {
+      name: t("entrepreneuriat.statut.cooperative.name"),
+      description: t("entrepreneuriat.statut.cooperative.desc"),
+      advantages: [
+        t("entrepreneuriat.statut.cooperative.adv1"),
+        t("entrepreneuriat.statut.cooperative.adv2"),
+        t("entrepreneuriat.statut.cooperative.adv3"),
+      ],
+      bestFor: t("entrepreneuriat.statut.cooperative.best"),
     },
   ];
 
@@ -181,7 +241,7 @@ const Entrepreneuriat = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {statuts.map((statut, index) => (
                 <div
                   key={index}
