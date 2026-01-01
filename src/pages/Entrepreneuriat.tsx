@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -11,13 +12,20 @@ import {
   Users,
   CheckCircle2,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   Lightbulb,
-  Target
+  Target,
+  User,
+  Briefcase,
+  Scale,
+  Globe
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Entrepreneuriat = () => {
   const { t } = useLanguage();
+  const [showMoreCategories, setShowMoreCategories] = useState(false);
 
   const steps = [
     {
@@ -46,98 +54,252 @@ const Entrepreneuriat = () => {
     },
   ];
 
-  const statuts = [
-    {
-      name: "Auto-entrepreneur",
-      description: t("entrepreneuriat.statut.auto.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.auto.adv1"),
-        t("entrepreneuriat.statut.auto.adv2"),
-        t("entrepreneuriat.statut.auto.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.auto.best"),
-    },
-    {
-      name: "SARL",
-      description: t("entrepreneuriat.statut.sarl.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.sarl.adv1"),
-        t("entrepreneuriat.statut.sarl.adv2"),
-        t("entrepreneuriat.statut.sarl.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.sarl.best"),
-    },
-    {
-      name: "SARL AU",
-      description: t("entrepreneuriat.statut.sarlau.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.sarlau.adv1"),
-        t("entrepreneuriat.statut.sarlau.adv2"),
-        t("entrepreneuriat.statut.sarlau.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.sarlau.best"),
-    },
-    {
-      name: "SA",
-      description: t("entrepreneuriat.statut.sa.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.sa.adv1"),
-        t("entrepreneuriat.statut.sa.adv2"),
-        t("entrepreneuriat.statut.sa.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.sa.best"),
-    },
-    {
-      name: "SAS",
-      description: t("entrepreneuriat.statut.sas.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.sas.adv1"),
-        t("entrepreneuriat.statut.sas.adv2"),
-        t("entrepreneuriat.statut.sas.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.sas.best"),
-    },
-    {
-      name: "SNC",
-      description: t("entrepreneuriat.statut.snc.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.snc.adv1"),
-        t("entrepreneuriat.statut.snc.adv2"),
-        t("entrepreneuriat.statut.snc.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.snc.best"),
-    },
-    {
-      name: "SCS",
-      description: t("entrepreneuriat.statut.scs.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.scs.adv1"),
-        t("entrepreneuriat.statut.scs.adv2"),
-        t("entrepreneuriat.statut.scs.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.scs.best"),
-    },
-    {
-      name: "GIE",
-      description: t("entrepreneuriat.statut.gie.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.gie.adv1"),
-        t("entrepreneuriat.statut.gie.adv2"),
-        t("entrepreneuriat.statut.gie.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.gie.best"),
-    },
-    {
-      name: t("entrepreneuriat.statut.cooperative.name"),
-      description: t("entrepreneuriat.statut.cooperative.desc"),
-      advantages: [
-        t("entrepreneuriat.statut.cooperative.adv1"),
-        t("entrepreneuriat.statut.cooperative.adv2"),
-        t("entrepreneuriat.statut.cooperative.adv3"),
-      ],
-      bestFor: t("entrepreneuriat.statut.cooperative.best"),
-    },
-  ];
+  // Category 1: Personnes Physiques
+  const category1 = {
+    name: t("entrepreneuriat.category1.name"),
+    icon: User,
+    statuts: [
+      {
+        name: "Auto-entrepreneur",
+        description: t("entrepreneuriat.statut.auto.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.auto.criteria1"),
+          t("entrepreneuriat.statut.auto.criteria2"),
+          t("entrepreneuriat.statut.auto.criteria3"),
+          t("entrepreneuriat.statut.auto.criteria4"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.auto.char1"),
+          t("entrepreneuriat.statut.auto.char2"),
+          t("entrepreneuriat.statut.auto.char3"),
+        ],
+        bestFor: t("entrepreneuriat.statut.auto.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.ei.name"),
+        description: t("entrepreneuriat.statut.ei.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.ei.criteria1"),
+          t("entrepreneuriat.statut.ei.criteria2"),
+          t("entrepreneuriat.statut.ei.criteria3"),
+          t("entrepreneuriat.statut.ei.criteria4"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.ei.char1"),
+          t("entrepreneuriat.statut.ei.char2"),
+          t("entrepreneuriat.statut.ei.char3"),
+        ],
+        bestFor: t("entrepreneuriat.statut.ei.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.pl.name"),
+        description: t("entrepreneuriat.statut.pl.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.pl.criteria1"),
+          t("entrepreneuriat.statut.pl.criteria2"),
+          t("entrepreneuriat.statut.pl.criteria3"),
+          t("entrepreneuriat.statut.pl.criteria4"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.pl.char1"),
+          t("entrepreneuriat.statut.pl.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.pl.best"),
+      },
+    ],
+  };
+
+  // Category 2: Sociétés Commerciales
+  const category2 = {
+    name: t("entrepreneuriat.category2.name"),
+    icon: Briefcase,
+    statuts: [
+      {
+        name: "SARL",
+        description: t("entrepreneuriat.statut.sarl.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.sarl.criteria1"),
+          t("entrepreneuriat.statut.sarl.criteria2"),
+          t("entrepreneuriat.statut.sarl.criteria3"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.sarl.char1"),
+          t("entrepreneuriat.statut.sarl.char2"),
+          t("entrepreneuriat.statut.sarl.char3"),
+        ],
+        bestFor: t("entrepreneuriat.statut.sarl.best"),
+      },
+      {
+        name: "SARL AU",
+        description: t("entrepreneuriat.statut.sarlau.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.sarlau.criteria1"),
+          t("entrepreneuriat.statut.sarlau.criteria2"),
+          t("entrepreneuriat.statut.sarlau.criteria3"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.sarlau.char1"),
+          t("entrepreneuriat.statut.sarlau.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.sarlau.best"),
+      },
+      {
+        name: "SAS",
+        description: t("entrepreneuriat.statut.sas.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.sas.criteria1"),
+          t("entrepreneuriat.statut.sas.criteria2"),
+          t("entrepreneuriat.statut.sas.criteria3"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.sas.char1"),
+          t("entrepreneuriat.statut.sas.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.sas.best"),
+      },
+      {
+        name: "SA",
+        description: t("entrepreneuriat.statut.sa.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.sa.criteria1"),
+          t("entrepreneuriat.statut.sa.criteria2"),
+          t("entrepreneuriat.statut.sa.criteria3"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.sa.char1"),
+          t("entrepreneuriat.statut.sa.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.sa.best"),
+      },
+      {
+        name: "SNC",
+        description: t("entrepreneuriat.statut.snc.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.snc.criteria1"),
+          t("entrepreneuriat.statut.snc.criteria2"),
+          t("entrepreneuriat.statut.snc.criteria3"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.snc.char1"),
+          t("entrepreneuriat.statut.snc.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.snc.best"),
+      },
+      {
+        name: "SCS",
+        description: t("entrepreneuriat.statut.scs.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.scs.criteria1"),
+          t("entrepreneuriat.statut.scs.criteria2"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.scs.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.scs.best"),
+      },
+      {
+        name: "SCA",
+        description: t("entrepreneuriat.statut.sca.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.sca.criteria1"),
+          t("entrepreneuriat.statut.sca.criteria2"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.sca.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.sca.best"),
+      },
+    ],
+  };
+
+  // Category 3: Structures Collectives
+  const category3 = {
+    name: t("entrepreneuriat.category3.name"),
+    icon: Scale,
+    statuts: [
+      {
+        name: "GIE",
+        description: t("entrepreneuriat.statut.gie.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.gie.criteria1"),
+          t("entrepreneuriat.statut.gie.criteria2"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.gie.char1"),
+          t("entrepreneuriat.statut.gie.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.gie.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.cooperative.name"),
+        description: t("entrepreneuriat.statut.cooperative.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.cooperative.criteria1"),
+          t("entrepreneuriat.statut.cooperative.criteria2"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.cooperative.char1"),
+          t("entrepreneuriat.statut.cooperative.char2"),
+        ],
+        bestFor: t("entrepreneuriat.statut.cooperative.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.association.name"),
+        description: t("entrepreneuriat.statut.association.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.association.criteria1"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.association.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.association.best"),
+      },
+    ],
+  };
+
+  // Category 4: Structures Étrangères
+  const category4 = {
+    name: t("entrepreneuriat.category4.name"),
+    icon: Globe,
+    statuts: [
+      {
+        name: t("entrepreneuriat.statut.succursale.name"),
+        description: t("entrepreneuriat.statut.succursale.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.succursale.criteria1"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.succursale.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.succursale.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.filiale.name"),
+        description: t("entrepreneuriat.statut.filiale.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.filiale.criteria1"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.filiale.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.filiale.best"),
+      },
+      {
+        name: t("entrepreneuriat.statut.bureau.name"),
+        description: t("entrepreneuriat.statut.bureau.desc"),
+        criteria: [
+          t("entrepreneuriat.statut.bureau.criteria1"),
+        ],
+        characteristics: [
+          t("entrepreneuriat.statut.bureau.char1"),
+        ],
+        bestFor: t("entrepreneuriat.statut.bureau.best"),
+      },
+    ],
+  };
+
+  const mainCategories = [category1, category2];
+  const additionalCategories = [category3, category4];
 
   const financements = [
     { name: "ANAPEC", description: "Moukawalati - Aide à la création d'entreprise" },
@@ -146,6 +308,62 @@ const Entrepreneuriat = () => {
     { name: "Banques", description: "Crédit Jeunes Promoteurs, microcrédits" },
     { name: "Incubateurs", description: "Technopark, StartGate, CFCIM" },
   ];
+
+  const renderCategory = (category: typeof category1, index: number) => (
+    <div key={index} className="mb-12">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+          <category.icon className="w-6 h-6 text-accent" />
+        </div>
+        <h3 className="text-2xl font-bold text-foreground">{category.name}</h3>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {category.statuts.map((statut, idx) => (
+          <div
+            key={idx}
+            className="p-6 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-card-hover"
+          >
+            <h4 className="text-xl font-semibold text-foreground mb-2">{statut.name}</h4>
+            <p className="text-muted-foreground text-sm mb-4">{statut.description}</p>
+            
+            {/* Criteria */}
+            <div className="mb-4">
+              <p className="text-xs font-medium text-accent mb-2">{t("entrepreneuriat.statuts.criteria")}</p>
+              <div className="space-y-1">
+                {statut.criteria.map((crit, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <span className="text-xs text-muted-foreground">•</span>
+                    <span className="text-xs text-muted-foreground">{crit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Characteristics */}
+            <div className="mb-4">
+              <p className="text-xs font-medium text-accent mb-2">{t("entrepreneuriat.statuts.characteristics")}</p>
+              <div className="space-y-1">
+                {statut.characteristics.map((char, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3 h-3 text-accent flex-shrink-0" />
+                    <span className="text-xs text-foreground">{char}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-3 rounded-lg bg-accent/5 border border-accent/20">
+              <p className="text-xs text-muted-foreground">
+                <span className="font-medium text-accent">{t("entrepreneuriat.statuts.ideal")} </span>
+                {statut.bestFor}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -241,32 +459,38 @@ const Entrepreneuriat = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {statuts.map((statut, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all duration-300"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{statut.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{statut.description}</p>
-                  
-                  <div className="space-y-2 mb-6">
-                    {statut.advantages.map((adv, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                        <span className="text-sm text-foreground">{adv}</span>
-                      </div>
-                    ))}
-                  </div>
+            <div className="max-w-7xl mx-auto">
+              {/* Main Categories (1 & 2) - Always visible */}
+              {mainCategories.map((category, index) => renderCategory(category, index))}
 
-                  <div className="p-3 rounded-lg bg-accent/5 border border-accent/20">
-                    <p className="text-xs text-muted-foreground">
-                      <span className="font-medium text-accent">{t("entrepreneuriat.statuts.ideal")} </span>
-                      {statut.bestFor}
-                    </p>
-                  </div>
+              {/* Additional Categories (3 & 4) - Behind "Voir plus" */}
+              {showMoreCategories && (
+                <div className="animate-in fade-in slide-in-from-top-4 duration-500">
+                  {additionalCategories.map((category, index) => renderCategory(category, index + 2))}
                 </div>
-              ))}
+              )}
+
+              {/* Toggle Button */}
+              <div className="text-center mt-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setShowMoreCategories(!showMoreCategories)}
+                  className="gap-2"
+                >
+                  {showMoreCategories ? (
+                    <>
+                      {t("entrepreneuriat.statuts.showLess")}
+                      <ChevronUp className="w-4 h-4" />
+                    </>
+                  ) : (
+                    <>
+                      {t("entrepreneuriat.statuts.showMore")}
+                      <ChevronDown className="w-4 h-4" />
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
         </section>
