@@ -10,7 +10,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t("pricing.plan1.name"),
-      price: "249",
+      price: "450",
       period: "DH",
       description: t("pricing.plan1.desc"),
       features: [
@@ -25,7 +25,7 @@ const Pricing = () => {
     },
     {
       name: t("pricing.plan2.name"),
-      price: "499",
+      price: "700",
       period: "DH",
       description: t("pricing.plan2.desc"),
       features: [
@@ -41,7 +41,7 @@ const Pricing = () => {
     },
     {
       name: t("pricing.plan3.name"),
-      price: "1299",
+      price: "1600",
       period: "DH",
       description: t("pricing.plan3.desc"),
       features: [
